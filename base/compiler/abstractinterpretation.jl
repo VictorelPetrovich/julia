@@ -1081,7 +1081,7 @@ function typeinf_local(frame::InferenceState)
                     for (caller, caller_pc) in frame.cycle_backedges
                         # notify backedges of updated type information
                         typeassert(caller.stmt_types[caller_pc], VarTable) # we must have visited this statement before
-                        if !(caller.src.ssavaluetypes[caller_pc] === Any) && !call_result_unused(caller, caller_pc)
+                        if !(caller.src.ssavaluetypes[caller_pc] === Any)
                             # no reason to revisit if that call-site doesn't affect the final result
                             if caller_pc < caller.pc´´
                                 caller.pc´´ = caller_pc
