@@ -306,10 +306,6 @@ function abstract_call_method(method::Method, @nospecialize(sig), sparams::Simpl
                 # (non-typically, this means that we lose the ability to detect a guaranteed StackOverflow in some cases)
                 return Any, false, nothing
             end
-            println()
-            println(newsig)
-            print_callstack(sv)
-            println()
             infstate = sv
             topmost = topmost::InferenceState
             while !(infstate.parent === topmost.parent)

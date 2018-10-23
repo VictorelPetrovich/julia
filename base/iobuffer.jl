@@ -297,7 +297,7 @@ end
             io.size = 0
         else
             datastart = ismarked(io) ? io.mark : io.ptr
-            if (io.size+nshort > io.maxsize) ||
+            if (io.size + nshort > io.maxsize) ||
                 (datastart > 4096 && datastart > io.size - io.ptr) ||
                 (datastart > 262144)
                 # apply somewhat arbitrary heuristics to decide when to destroy
@@ -306,6 +306,7 @@ end
             end
         end
     end
+    nothing
 end
 
 @inline ensureroom(io::GenericIOBuffer, nshort::Int) = ensureroom(io, UInt(nshort))
